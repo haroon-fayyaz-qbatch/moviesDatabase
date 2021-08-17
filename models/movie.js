@@ -19,6 +19,11 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: "cascade",
         onUpdate: "cascade",
       });
+      movie.hasMany(models.movie_direction, {
+        foreignKey: "mov_id",
+        onDelete: "cascade",
+        onUpdate: "cascade",
+      });
     }
   }
   movie.init(

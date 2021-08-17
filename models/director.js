@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class director extends Model {
     /**
@@ -11,16 +9,24 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      director.hasMany(models.movie_direction, {
+        foreignKey: "dir_id",
+        onDelete: "cascade",
+        onUpdate: "cascade",
+      });
     }
-  };
-  director.init({
-    dir_id: DataTypes.INTEGER,
-    dir_fname: DataTypes.STRING,
-    dir_lname: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'director',
-    underscored: true,
-  });
+  }
+  director.init(
+    {
+      dir_id: DataTypes.INTEGER,
+      dir_fname: DataTypes.STRING,
+      dir_lname: DataTypes.STRING,
+    },
+    {
+      sequelize,
+      modelName: "director",
+      underscored: true,
+    }
+  );
   return director;
 };

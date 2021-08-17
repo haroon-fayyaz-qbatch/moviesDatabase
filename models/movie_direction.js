@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class movie_direction extends Model {
     /**
@@ -11,15 +9,20 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      movie_direction.belongsTo(models.director);
+      movie_direction.belongsTo(models.movie);
     }
-  };
-  movie_direction.init({
-    dir_id: DataTypes.INTEGER,
-    mov_id: DataTypes.INTEGER
-  }, {
-    sequelize,
-    modelName: 'movie_direction',
-    underscored: true,
-  });
+  }
+  movie_direction.init(
+    {
+      dir_id: DataTypes.INTEGER,
+      mov_id: DataTypes.INTEGER,
+    },
+    {
+      sequelize,
+      modelName: "movie_direction",
+      underscored: true,
+    }
+  );
   return movie_direction;
 };
