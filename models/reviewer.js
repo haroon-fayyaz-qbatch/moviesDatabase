@@ -1,7 +1,7 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class director extends Model {
+  class reviewer extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -9,29 +9,25 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      director.hasMany(models.movie_direction, {
-        foreignKey: "dir_id",
-        onDelete: "cascade",
-        onUpdate: "cascade",
-      });
     }
   }
-  director.init(
+  reviewer.init(
     {
-      dir_id: {
+      rev_id: {
+        type: DataTypes.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: DataTypes.INTEGER,
       },
-      dir_fname: DataTypes.STRING,
-      dir_lname: DataTypes.STRING,
+      rev_name: {
+        type: DataTypes.STRING,
+      },
     },
     {
       sequelize,
-      modelName: "director",
+      modelName: "reviewer",
       underscored: true,
     }
   );
-  return director;
+  return reviewer;
 };
