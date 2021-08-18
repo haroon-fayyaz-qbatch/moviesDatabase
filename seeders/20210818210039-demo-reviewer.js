@@ -6,7 +6,6 @@ module.exports = {
         return queryInterface.bulkInsert('reviewer', [{
                 rev_id: 9001,
                 rev_name: 'Righty Sock',
-                role: 'John Scottie Ferguson',
                 created_at: new Date(),
                 updated_at: new Date()
             }, {
