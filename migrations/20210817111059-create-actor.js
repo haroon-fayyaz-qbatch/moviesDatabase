@@ -17,11 +17,11 @@ module.exports = {
             act_gender: {
                 type: Sequelize.CHAR,
             },
-            createdAt: {
+            created_at: {
                 allowNull: false,
                 type: Sequelize.DATE,
             },
-            updatedAt: {
+            updated_at: {
                 allowNull: false,
                 type: Sequelize.DATE,
             },

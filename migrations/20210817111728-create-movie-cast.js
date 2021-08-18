@@ -15,11 +15,11 @@ module.exports = {
                 allowNull: true,
                 references: { model: "movie", key: "mov_id" },
             },
-            createdAt: {
+            created_at: {
                 allowNull: false,
                 type: Sequelize.DATE,
             },
-            updatedAt: {
+            updated_at: {
                 allowNull: false,
                 type: Sequelize.DATE,
             },

@@ -10,8 +10,8 @@ module.exports = {
                     mov_lang: 'English',
                     mov_dt_rel: '1958-08-24',
                     mov_rel_country: 'UK',
-                    createdAt: new Date(),
-                    updatedAt: new Date()
+                    created_at: new Date(),
+                    updated_at: new Date()
                 }, {
                     mov_id: 902,
                     mov_title: 'The Innocents',
@@ -20,8 +20,8 @@ module.exports = {
                     mov_lang: 'English',
                     mov_dt_rel: '1962-02-19',
                     mov_rel_country: 'SW',
-                    createdAt: new Date(),
-                    updatedAt: new Date()
+                    created_at: new Date(),
+                    updated_at: new Date()
                 },
                 {
                     mov_id: 903,
@@ -31,8 +31,8 @@ module.exports = {
                     mov_lang: 'English',
                     mov_dt_rel: '1962-12-11',
                     mov_rel_country: 'UK',
-                    createdAt: new Date(),
-                    updatedAt: new Date()
+                    created_at: new Date(),
+                    updated_at: new Date()
                 },
                 {
                     mov_id: 904,
@@ -42,8 +42,8 @@ module.exports = {
                     mov_lang: 'English',
                     mov_dt_rel: '1979-03-08',
                     mov_rel_country: 'UK',
-                    createdAt: new Date(),
-                    updatedAt: new Date()
+                    created_at: new Date(),
+                    updated_at: new Date()
                 }, {
                     mov_id: 905,
                     mov_title: 'Amadeus',
@@ -52,8 +52,8 @@ module.exports = {
                     mov_lang: 'English',
                     mov_dt_rel: '1985-01-07',
                     mov_rel_country: 'UK',
-                    createdAt: new Date(),
-                    updatedAt: new Date()
+                    created_at: new Date(),
+                    updated_at: new Date()
                 },
                 {
                     mov_id: 906,
@@ -63,8 +63,8 @@ module.exports = {
                     mov_lang: 'English',
                     mov_dt_rel: '1982-09-09',
                     mov_rel_country: 'UK',
-                    createdAt: new Date(),
-                    updatedAt: new Date()
+                    created_at: new Date(),
+                    updated_at: new Date()
                 },
                 {
                     mov_id: 907,
@@ -75,8 +75,8 @@ module.exports = {
 
                     mov_dt_rel: null,
                     mov_rel_country: 'UK',
-                    createdAt: new Date(),
-                    updatedAt: new Date()
+                    created_at: new Date(),
+                    updated_at: new Date()
                 },
                 {
                     mov_id: 908,
@@ -86,8 +86,8 @@ module.exports = {
                     mov_lang: 'English ',
                     mov_dt_rel: '1995-08-25',
                     mov_rel_country: 'UK',
-                    createdAt: new Date(),
-                    updatedAt: new Date()
+                    created_at: new Date(),
+                    updated_at: new Date()
                 },
                 {
                     mov_id: 909,
@@ -97,8 +97,8 @@ module.exports = {
                     mov_lang: 'English',
                     mov_dt_rel: '1974-08-09',
                     mov_rel_country: 'UK',
-                    createdAt: new Date(),
-                    updatedAt: new Date()
+                    created_at: new Date(),
+                    updated_at: new Date()
                 },
                 {
                     mov_id: 910,
@@ -108,8 +108,8 @@ module.exports = {
                     mov_lang: 'English',
                     mov_dt_rel: '1998-02-16',
                     mov_rel_country: 'UK',
-                    createdAt: new Date(),
-                    updatedAt: new Date()
+                    created_at: new Date(),
+                    updated_at: new Date()
                 },
                 {
                     mov_id: 911,
@@ -119,8 +119,8 @@ module.exports = {
                     mov_lang: 'English',
                     mov_dt_rel: '1977-04-20',
                     mov_rel_country: 'S',
-                    createdAt: new Date(),
-                    updatedAt: new Date()
+                    created_at: new Date(),
+                    updated_at: new Date()
                 },
                 {
                     mov_id: 912,
@@ -130,8 +130,8 @@ module.exports = {
                     mov_lang: 'Japanese',
                     mov_dt_rel: '2001-10-19',
                     mov_rel_country: 'UK',
-                    createdAt: new Date(),
-                    updatedAt: new Date()
+                    created_at: new Date(),
+                    updated_at: new Date()
                 },
                 {
                     mov_id: 913,
@@ -141,8 +141,8 @@ module.exports = {
                     mov_lang: 'English ',
                     mov_dt_rel: '1995-02-17',
                     mov_rel_country: 'UK',
-                    createdAt: new Date(),
-                    updatedAt: new Date()
+                    created_at: new Date(),
+                    updated_at: new Date()
                 },
                 {
                     mov_id: 914,
@@ -152,8 +152,8 @@ module.exports = {
                     mov_lang: 'English',
                     mov_dt_rel: null,
                     mov_rel_country: 'UK',
-                    createdAt: new Date(),
-                    updatedAt: new Date()
+                    created_at: new Date(),
+                    updated_at: new Date()
                 },
                 {
                     mov_id: 915,
@@ -163,8 +163,8 @@ module.exports = {
                     mov_lang: 'English',
                     mov_dt_rel: '1998-01-23',
                     mov_rel_country: 'UK',
-                    createdAt: new Date(),
-                    updatedAt: new Date()
+                    created_at: new Date(),
+                    updated_at: new Date()
                 },
                 {
                     mov_id: 916,
@@ -174,8 +174,8 @@ module.exports = {
                     mov_lang: 'English ',
                     mov_dt_rel: '1998-06-03',
                     mov_rel_country: 'UK',
-                    createdAt: new Date(),
-                    updatedAt: new Date()
+                    created_at: new Date(),
+                    updated_at: new Date()
                 },
                 {
                     mov_id: 917,
@@ -185,8 +185,8 @@ module.exports = {
                     mov_lang: 'English',
                     mov_dt_rel: '1982-10-05',
                     mov_rel_country: 'UK',
-                    createdAt: new Date(),
-                    updatedAt: new Date()
+                    created_at: new Date(),
+                    updated_at: new Date()
                 },
                 {
                     mov_id: 918,
@@ -196,8 +196,8 @@ module.exports = {
                     mov_lang: 'English ',
                     mov_dt_rel: '1996-02-23',
                     mov_rel_country: 'UK',
-                    createdAt: new Date(),
-                    updatedAt: new Date()
+                    created_at: new Date(),
+                    updated_at: new Date()
                 },
                 {
                     mov_id: 919,
@@ -207,8 +207,8 @@ module.exports = {
                     mov_lang: 'English',
                     mov_dt_rel: '2006-11-10',
                     mov_rel_country: 'UK',
-                    createdAt: new Date(),
-                    updatedAt: new Date()
+                    created_at: new Date(),
+                    updated_at: new Date()
                 },
                 {
                     mov_id: 920,
@@ -218,8 +218,8 @@ module.exports = {
                     mov_lang: 'English',
                     mov_dt_rel: null,
                     mov_rel_country: 'UK',
-                    createdAt: new Date(),
-                    updatedAt: new Date()
+                    created_at: new Date(),
+                    updated_at: new Date()
                 },
                 {
                     mov_id: 921,
@@ -229,8 +229,8 @@ module.exports = {
                     mov_lang: 'English',
                     mov_dt_rel: '2009-01-09',
                     mov_rel_country: 'UK',
-                    createdAt: new Date(),
-                    updatedAt: new Date()
+                    created_at: new Date(),
+                    updated_at: new Date()
                 },
                 {
                     mov_id: 922,
@@ -240,8 +240,8 @@ module.exports = {
                     mov_lang: 'English',
                     mov_dt_rel: '1986-08-29',
                     mov_rel_country: 'UK',
-                    createdAt: new Date(),
-                    updatedAt: new Date()
+                    created_at: new Date(),
+                    updated_at: new Date()
                 },
                 {
                     mov_id: 923,
@@ -251,8 +251,8 @@ module.exports = {
                     mov_lang: 'English',
                     mov_dt_rel: '2004-11-26',
                     mov_rel_country: 'UK',
-                    createdAt: new Date(),
-                    updatedAt: new Date()
+                    created_at: new Date(),
+                    updated_at: new Date()
                 },
                 {
                     mov_id: 924,
@@ -262,8 +262,8 @@ module.exports = {
                     mov_lang: 'English',
                     mov_dt_rel: '2009-12-17',
                     mov_rel_country: 'UK',
-                    createdAt: new Date(),
-                    updatedAt: new Date()
+                    created_at: new Date(),
+                    updated_at: new Date()
                 },
                 {
                     mov_id: 926,
@@ -273,8 +273,8 @@ module.exports = {
                     mov_lang: 'Japanese,',
                     mov_dt_rel: '1954-04-26',
                     mov_rel_country: 'JP',
-                    createdAt: new Date(),
-                    updatedAt: new Date()
+                    created_at: new Date(),
+                    updated_at: new Date()
                 },
                 {
                     mov_id: 927,
@@ -284,8 +284,8 @@ module.exports = {
                     mov_lang: 'Japanese',
                     mov_dt_rel: '2003-09-12',
                     mov_rel_country: 'UK',
-                    createdAt: new Date(),
-                    updatedAt: new Date()
+                    created_at: new Date(),
+                    updated_at: new Date()
                 },
                 {
                     mov_id: 928,
@@ -295,8 +295,8 @@ module.exports = {
                     mov_lang: 'English',
                     mov_dt_rel: '1985-12-04',
                     mov_rel_country: 'UK',
-                    createdAt: new Date(),
-                    updatedAt: new Date()
+                    created_at: new Date(),
+                    updated_at: new Date()
                 },
                 {
                     mov_id: 925,
@@ -306,8 +306,8 @@ module.exports = {
                     mov_lang: 'English',
                     mov_dt_rel: '1995-09-08',
                     mov_rel_country: 'UK',
-                    createdAt: new Date(),
-                    updatedAt: new Date()
+                    created_at: new Date(),
+                    updated_at: new Date()
                 },
 
             ]
