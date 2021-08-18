@@ -9,6 +9,11 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             // define association here
+            reviewer.hasMany(models.rating, {
+                foreignKey: 'rev_id',
+                onDelete: 'CASCADE',
+                onUpdate: 'CASCADE'
+            })
         }
     }
     reviewer.init({

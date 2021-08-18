@@ -9,8 +9,8 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             // define association here
-            movie_direction.belongsTo(models.director);
-            movie_direction.belongsTo(models.movie);
+            movie_direction.belongsTo(models.director, { foreignKey: 'dir_id', constraints: false });
+            movie_direction.belongsTo(models.movie, { foreignKey: 'mov_id', constraints: false });
         }
     }
     movie_direction.init({

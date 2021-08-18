@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             // define association here
+            rating.belongsTo(models.movie, { foreignKey: 'mov_id', constraints: false });
+            rating.belongsTo(models.reviewer, { foreignKey: 'rev_id', constraints: false });
         }
     };
     rating.init({
