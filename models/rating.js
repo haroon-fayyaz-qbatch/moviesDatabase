@@ -1,8 +1,9 @@
-"use strict";
-const { Model } = require("sequelize");
-const movie = require("./movie");
+'use strict';
+const {
+    Model
+} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-    class movie_genres extends Model {
+    class rating extends Model {
         /**
          * Helper method for defining associations.
          * This method is not a part of Sequelize lifecycle.
@@ -10,26 +11,26 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             // define association here
-            movie_genres.belongsTo(models.genres);
-            movie_genres.belongsTo(models.movie);
         }
-    }
-    movie_genres.init({
-        gen_id: {
-            type: DataTypes.INTEGER,
-            allowNull: true,
-            references: { model: "genres", key: "gen_id" },
-        },
+    };
+    rating.init({
         mov_id: {
             type: DataTypes.INTEGER,
             allowNull: true,
             references: { model: "movie", key: "mov_id" },
         },
+        rev_id: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            references: { model: "reviewer", key: "rev_id" },
+        },
+        rev_stars: DataTypes.INTEGER,
+        num_o_ratings: DataTypes.INTEGER
     }, {
         sequelize,
-        modelName: "movie_genres",
+        modelName: 'rating',
         underscored: true,
         freezeTableName: true
     });
-    return movie_genres;
+    return rating;
 };
