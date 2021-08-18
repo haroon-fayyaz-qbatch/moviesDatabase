@@ -32,7 +32,7 @@ module.exports = (sequelize, DataTypes) => {
         }
     }
     movie.init({
-        movie_title: DataTypes.STRING,
+        mov_title: DataTypes.STRING,
         mov_year: DataTypes.INTEGER,
         mov_time: DataTypes.INTEGER,
         mov_lang: DataTypes.STRING,
