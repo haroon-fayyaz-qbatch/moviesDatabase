@@ -13,7 +13,7 @@ module.exports = {
                 references: { model: "reviewer", key: "rev_id" },
             },
             rev_stars: {
-                type: Sequelize.INTEGER
+                type: Sequelize.DOUBLE
             },
             num_o_ratings: {
                 type: Sequelize.INTEGER
