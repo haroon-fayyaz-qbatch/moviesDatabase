@@ -88,9 +88,20 @@ const nameOfReviewersWhoHaveRatedAboveSpecificStars = async(stars = 7) => {
                     [Op.gte]: stars
                 }
             }
-        }]
+        }],
+        where: {
+            rev_name: {
+                [Op.not]: null
+            }
+        },
+        raw: true,
+        nest: false
     });
-    console.log(reviewers);
+
+
+    for (const reviewer of reviewers) {
+        console.log('Reviewer: ', reviewer.rev_name, ', Rev_stars: ', reviewer['ratings.rev_stars']);
+    }
 }
 
 
