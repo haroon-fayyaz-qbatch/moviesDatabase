@@ -26,13 +26,12 @@ module.exports = (sequelize, DataTypes) => {
         act_fname: DataTypes.STRING,
         act_lname: DataTypes.STRING,
         act_gender: DataTypes.CHAR,
-        createdAt: 'created_at',
-        updatedAt: 'updated_at'
     }, {
         sequelize,
         modelName: "actor",
         freezeTableName: true,
-
+        createdAt: 'created_at',
+        updatedAt: 'updated_at'
     });
     return actor;
 };

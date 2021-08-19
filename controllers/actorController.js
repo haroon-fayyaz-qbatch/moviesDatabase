@@ -8,15 +8,20 @@ const Movie = db["movie"];
 Object.keys(db).forEach(key => console.log(key, ' ', db[key].associations));
 
 
-const viewAllActors = async() => {
-    const actors = await Actor.findAll();
-    const result = actors.getMovieCasts();
-    console.log(result);
+// 1. Write a query in SQL to find the name and year of the movies. 
+const nameAndYearOfMovies = async() => {
+    const movies = await Movie.findAll({
+        attributes: ['mov_title', 'mov_year']
+    });
+    for (const movie of movies) {
+        console.log('Movie Title: ', movie.dataValues.mov_title, ', Movie_Year: ', movie.dataValues.mov_year);
+    }
 }
 
 
 const main = async() => {
-    await viewAllActors();
+    // await viewAllActors();
+    await nameAndYearOfMovies();
 }
 
 main();
