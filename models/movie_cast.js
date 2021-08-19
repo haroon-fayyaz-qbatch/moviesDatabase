@@ -29,6 +29,8 @@ module.exports = (sequelize, DataTypes) => {
         sequelize,
         modelName: "movie_cast",
         freezeTableName: true,
+        createdAt: 'created_at',
+        updatedAt: 'updated_at'
     });
     return movie_cast;
 };

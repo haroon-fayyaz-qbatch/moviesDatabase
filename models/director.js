@@ -29,7 +29,9 @@ module.exports = (sequelize, DataTypes) => {
         sequelize,
         modelName: "director",
         underscored: true,
-        freezeTableName: true
+        freezeTableName: true,
+        createdAt: 'created_at',
+        updatedAt: 'updated_at'
     });
     return director;
 };

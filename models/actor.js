@@ -17,9 +17,17 @@ module.exports = (sequelize, DataTypes) => {
         }
     }
     actor.init({
+        act_id: {
+            allowNull: false,
+            autoIncrement: true,
+            primaryKey: true,
+            type: DataTypes.INTEGER,
+        },
         act_fname: DataTypes.STRING,
         act_lname: DataTypes.STRING,
         act_gender: DataTypes.CHAR,
+        createdAt: 'created_at',
+        updatedAt: 'updated_at'
     }, {
         sequelize,
         modelName: "actor",

@@ -17,6 +17,12 @@ module.exports = (sequelize, DataTypes) => {
         }
     }
     genres.init({
+        gen_id: {
+            allowNull: false,
+            autoIncrement: true,
+            primaryKey: true,
+            type: DataTypes.INTEGER,
+        },
         gen_title: DataTypes.STRING,
     }, {
         sequelize,

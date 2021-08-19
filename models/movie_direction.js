@@ -20,7 +20,9 @@ module.exports = (sequelize, DataTypes) => {
         sequelize,
         modelName: "movie_direction",
         underscored: true,
-        freezeTableName: true
+        freezeTableName: true,
+        createdAt: 'created_at',
+        updatedAt: 'updated_at'
     });
     return movie_direction;
 };

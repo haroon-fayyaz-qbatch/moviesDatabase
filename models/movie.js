@@ -32,6 +32,12 @@ module.exports = (sequelize, DataTypes) => {
         }
     }
     movie.init({
+        mov_id: {
+            allowNull: false,
+            autoIncrement: true,
+            primaryKey: true,
+            type: DataTypes.INTEGER,
+        },
         mov_title: DataTypes.STRING,
         mov_year: DataTypes.INTEGER,
         mov_time: DataTypes.INTEGER,
@@ -42,6 +48,8 @@ module.exports = (sequelize, DataTypes) => {
         sequelize,
         modelName: "movie",
         freezeTableName: true,
+        createdAt: 'created_at',
+        updatedAt: 'updated_at'
     });
     return movie;
 };
