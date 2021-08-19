@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             // define association here
-            rating.belongsTo(models.movie);
-            rating.belongsTo(models.reviewer);
+            rating.belongsTo(models.movie, { foreignKey: 'mov_id' });
+            rating.belongsTo(models.reviewer, { foreignKey: 'rev_id' });
         }
     };
     rating.init({
@@ -36,5 +36,6 @@ module.exports = (sequelize, DataTypes) => {
         createdAt: 'created_at',
         updatedAt: 'updated_at'
     });
+    rating.removeAttribute('id');
     return rating;
 };

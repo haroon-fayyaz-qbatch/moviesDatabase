@@ -9,8 +9,8 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             // define association here
-            movie_cast.belongsTo(models.actor);
-            movie_cast.belongsTo(models.movie);
+            movie_cast.belongsTo(models.actor, { foreignKey: 'act_id' });
+            movie_cast.belongsTo(models.movie, { foreignKey: 'mov_id' });
         }
     }
     movie_cast.init({
@@ -32,5 +32,6 @@ module.exports = (sequelize, DataTypes) => {
         createdAt: 'created_at',
         updatedAt: 'updated_at'
     });
+    movie_cast.removeAttribute('id');
     return movie_cast;
 };

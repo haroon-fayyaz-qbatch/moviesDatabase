@@ -9,8 +9,8 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             // define association here
-            movie_direction.belongsTo(models.director);
-            movie_direction.belongsTo(models.movie);
+            movie_direction.belongsTo(models.director, { foreignKey: 'dir_id' });
+            movie_direction.belongsTo(models.movie, { foreignKey: 'mov_id' });
         }
     }
     movie_direction.init({
@@ -24,5 +24,6 @@ module.exports = (sequelize, DataTypes) => {
         createdAt: 'created_at',
         updatedAt: 'updated_at'
     });
+    movie_direction.removeAttribute('id');
     return movie_direction;
 };
