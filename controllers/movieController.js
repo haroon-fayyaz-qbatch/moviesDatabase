@@ -127,7 +127,12 @@ const nameOfReviewersWhoHaveRatedAboveSpecificStars = async (stars = 7) => {
   }
 };
 
+// 7. Write a query in SQL to find the titles of all movies that have no ratings
+
 const moviesWithNoRatings = async () => {
+  console.log(
+    "7. Write a query in SQL to find the titles of all movies that have no ratings."
+  );
   const movies = await Movie.findAll({
     attributes: ["mov_title"],
     where: Sequelize.literal("mov_id NOT IN(SELECT mov_id FROM Rating)"),
@@ -138,7 +143,12 @@ const moviesWithNoRatings = async () => {
   }
 };
 
+// 8. Write a query in SQL to find the titles of the movies with ID 905, 907, 917.
+
 const findTitlesOfMoviesUsingID = async (ids = [905, 907, 917]) => {
+  console.log(
+    "8. Write a query in SQL to find the titles of the movies with ID 905, 907, 917."
+  );
   const movies = await Movie.findAll({
     attributes: ["mov_title"],
     where: {
@@ -153,6 +163,56 @@ const findTitlesOfMoviesUsingID = async (ids = [905, 907, 917]) => {
   }
 };
 
+// 9. Write a query in SQL to find the list of all those movies with year which include the words Boogie Nights.
+
+const moviesThatIncludeSpecificWord = async (word = "Boogie Nights") => {
+  console.log(
+    "9. Write a query in SQL to find the list of all those movies with year which include the words Boogie Nights. "
+  );
+  const movies = await Movie.findAll({
+    attributes: ["mov_title", "mov_year"],
+    where: {
+      mov_title: {
+        [Op.like]: `%${word}%`,
+      },
+    },
+    raw: true,
+  });
+  console.log(movies);
+};
+
+// 6. Write a query in SQL to find all the years which produced at least one movie and that received a rating of more than 3 stars. Show the results in increasing order.
+
+const countMoviesProducedInAYear = async () => {
+  Rating.findAll({
+    // attributes: ["rev_stars"],
+    attributes: [
+      [db.Sequelize.fn("count", db.Sequelize.col("mov_year")), "count"],
+    ],
+    include: [
+      {
+        model: Movie,
+        required: true,
+        attributes: ["mov_year"],
+      },
+    ],
+    where: {
+      rev_stars: {
+        [Op.gt]: 3,
+      },
+    },
+    raw: true,
+    group: ["mov_year"],
+    having: {
+      count: {
+        [Op.gte]: 3,
+      },
+    },
+  })
+    .then((ratings) => console.log(ratings))
+    .catch((error) => console.error(error));
+};
+
 const main = async () => {
   // await nameAndYearOfMovies();
   // await movieYearOfSpecificMovie();
@@ -161,7 +221,9 @@ const main = async () => {
   // await nameOfReviewersWithMovies();
   // await nameOfReviewersWhoHaveRatedAboveSpecificStars();
   //   await moviesWithNoRatings();
-  await findTitlesOfMoviesUsingID();
+  //   await findTitlesOfMoviesUsingID();
+  //   await moviesThatIncludeSpecificWord();
+  await countMoviesProducedInAYear();
 };
 
 main();
