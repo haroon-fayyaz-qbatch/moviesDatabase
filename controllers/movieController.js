@@ -272,6 +272,33 @@ const moviesDescription = async () => {
     .catch((error) => console.error(error));
 };
 
+const reviewersWhoRatedMoreThanOneMovies = async () => {
+  Reviewer.findAll({
+    raw: true,
+    attributes: ["rev_name"],
+    include: {
+      model: Rating,
+      required: true,
+      raw: true,
+      attributes: [
+        "rev_id",
+        [Sequelize.fn("count", Sequelize.col(`ratings.rev_id`)), "countR"],
+      ],
+      include: {
+        raw: true,
+        model: Movie,
+        required: true,
+        attributes: ["mov_title"],
+      },
+    },
+    group: ["ratings.rev_id", "rev_name", "mov_title"],
+  })
+    .then((reviewers) => {
+      console.log(reviewers);
+    })
+    .catch((error) => console.error(error));
+};
+
 const main = async () => {
   // await nameAndYearOfMovies();
   // await movieYearOfSpecificMovie();
@@ -284,7 +311,8 @@ const main = async () => {
   //   await moviesThatIncludeSpecificWord();
   // await countMoviesProducedInAYear();
   // await reviewersWithNullRatings();
-  await moviesDescription();
+  // await moviesDescription();
+  await reviewersWhoRatedMoreThanOneMovies();
 };
 
 main();
