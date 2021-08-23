@@ -1,9 +1,13 @@
 const db = require("../models/");
 
 const Sequelize = db.Sequelize;
+const Op = Sequelize.Op;
+
 const Actor = db["actor"];
 const Movie_cast = db["movie_cast"];
 const Movie = db["movie"];
+const Director = db["director"];
+const Movie_Direction = db["movie_direction"];
 
 Object.keys(db).forEach((key) => console.log(key, " ", db[key].associations));
 
@@ -73,15 +77,54 @@ const actorsWhoPlayedRoleInSpecificMovie = async (movie = "Annie Hall") => {
   });
 };
 
+// 2. Write a query in SQL to find the name of the director (first and last names) who directed a movie that casted a role for 'Eyes Wide Shut'. (using subquery)
 
+const nameOfDirectorsWhoDirectedASpecificRole = (title = "Eyes Wide Shut") => {
+  Director.findAll({
+    attributes: ["dir_fname", "dir_lname"],
+    include: {
+      model: Movie_Direction,
+      required: true,
+      attributes: [],
+      include: {
+        model: Movie,
+        required: true,
+        attributes: [],
+        where: { mov_title: title },
+      },
+    },
+    raw: true,
+  })
+    .then((directors) => {
+      console.log(directors);
+    })
+    .catch((error) => console.error(error));
+};
 
+// 3. Write a query in SQL to list all the movies which released in the country other than UK.
 
+const listMoviesThatAreNotReleasedInSpecificCountry = async (
+  country = "UK"
+) => {
+  console.log(
+    "3. Write a query in SQL to list all the movies which released in the country other than UK."
+  );
+  Movie.findAll({
+    attributes: ["mov_title", ["mov_rel_country", "releasing_country"]],
+    where: { mov_rel_country: { [Op.not]: country } },
+    raw: true,
+  })
+    .then((movies) => console.log(movies))
+    .catch((error) => console.error(error));
+};
 
 const main = async () => {
   // await viewAllActors();
   // await nameAndYearOfMovies();
   // await firstNameAndLastNameOfActors();
-  await actorsWhoPlayedRoleInSpecificMovie();
+  // await actorsWhoPlayedRoleInSpecificMovie();
+  // await nameOfDirectorsWhoDirectedASpecificRole();
+  await listMoviesThatAreNotReleasedInSpecificCountry();
 };
 
 main();
