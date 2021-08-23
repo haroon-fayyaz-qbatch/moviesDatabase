@@ -173,6 +173,35 @@ const listMoviesWithNoReviewers = async () => {
     .catch((error) => console.error(error));
 };
 
+// 5. Write a query in SQL to find the titles of all movies directed by the director whose first and last name are Woddy Allen.
+
+const titleOfAllMoviesDirectedByTheDirector = async (
+  first_name = "Woody",
+  last_name = "Allen"
+) => {
+  Movie.findAll({
+    attributes: ["mov_title"],
+    include: {
+      model: Movie_Direction,
+      attributes: [],
+      required: true,
+      include: {
+        attributes: [],
+        required: true,
+        model: Director,
+        where: { dir_fname: first_name, dir_lname: last_name },
+      },
+    },
+    raw: true,
+  })
+    .then((movie) => {
+      console.log(movie);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
+
 const main = async () => {
   // await viewAllActors();
   // await nameAndYearOfMovies();
@@ -180,7 +209,8 @@ const main = async () => {
   // await actorsWhoPlayedRoleInSpecificMovie();
   // await nameOfDirectorsWhoDirectedASpecificRole();
   // await listMoviesThatAreNotReleasedInSpecificCountry();
-  await listMoviesWithNoReviewers();
+  // await listMoviesWithNoReviewers();
+  await titleOfAllMoviesDirectedByTheDirector();
 };
 
 main();
