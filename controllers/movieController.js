@@ -213,6 +213,22 @@ const countMoviesProducedInAYear = async () => {
     .catch((error) => console.error(error));
 };
 
+// 8. Write a query in SQL to find the names of all reviewers who have ratings with a NULL value.
+
+const reviewersWithNullRatings = async () => {
+  Reviewer.findAll({
+    attributes: ["rev_name"],
+    raw: true,
+    include: {
+      model: Rating,
+      attributes: [],
+      where: { rev_stars: null },
+    },
+  })
+    .then((reviewers) => console.log(reviewers))
+    .catch((error) => console.error(error));
+};
+
 const main = async () => {
   // await nameAndYearOfMovies();
   // await movieYearOfSpecificMovie();
@@ -223,7 +239,8 @@ const main = async () => {
   //   await moviesWithNoRatings();
   //   await findTitlesOfMoviesUsingID();
   //   await moviesThatIncludeSpecificWord();
-  await countMoviesProducedInAYear();
+  // await countMoviesProducedInAYear();
+  await reviewersWithNullRatings();
 };
 
 main();

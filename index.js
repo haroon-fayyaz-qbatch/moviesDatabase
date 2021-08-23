@@ -1,2 +1,2 @@
-const actorController = require("./controllers/actorController");
-// const movieController = require("./controllers/movieController");
+// const actorController = require("./controllers/actorController");
+const movieController = require("./controllers/movieController");
