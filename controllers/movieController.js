@@ -184,6 +184,9 @@ const moviesThatIncludeSpecificWord = async (word = "Boogie Nights") => {
 // 6. Write a query in SQL to find all the years which produced at least one movie and that received a rating of more than 3 stars. Show the results in increasing order.
 
 const countMoviesProducedInAYear = async () => {
+  console.log(
+    "6. Write a query in SQL to find all the years which produced at least one movie and that received a rating of more than 3 stars. Show the results in increasing order "
+  );
   Rating.findAll({
     // attributes: ["rev_stars"],
     attributes: [
@@ -216,6 +219,9 @@ const countMoviesProducedInAYear = async () => {
 // 8. Write a query in SQL to find the names of all reviewers who have ratings with a NULL value.
 
 const reviewersWithNullRatings = async () => {
+  console.log(
+    "8. Write a query in SQL to find the names of all reviewers who have ratings with a NULL value."
+  );
   Reviewer.findAll({
     attributes: ["rev_name"],
     raw: true,
@@ -226,6 +232,43 @@ const reviewersWithNullRatings = async () => {
     },
   })
     .then((reviewers) => console.log(reviewers))
+    .catch((error) => console.error(error));
+};
+
+// 9. Write a query in SQL to return the reviewer name, movie title, and stars for those movies which reviewed by a reviewer and must be rated. Sort the result by reviewer name, movie title, and number of stars.
+
+const moviesDescription = async () => {
+  Movie.findAll({
+    attributes: ["mov_title"],
+    raw: true,
+    order: ["mov_title"],
+    include: {
+      model: Rating,
+      attributes: ["rev_stars"],
+      order: ["rev_stars"],
+      required: true,
+      raw: true,
+      where: {
+        rev_stars: {
+          [Op.not]: null,
+        },
+      },
+      include: {
+        model: Reviewer,
+        raw: true,
+        attributes: ["rev_name"],
+        order: ["rev_name"],
+        where: {
+          rev_name: {
+            [Op.not]: null,
+          },
+        },
+      },
+    },
+  })
+    .then((reviewers) => {
+      console.log(reviewers);
+    })
     .catch((error) => console.error(error));
 };
 
@@ -240,7 +283,8 @@ const main = async () => {
   //   await findTitlesOfMoviesUsingID();
   //   await moviesThatIncludeSpecificWord();
   // await countMoviesProducedInAYear();
-  await reviewersWithNullRatings();
+  // await reviewersWithNullRatings();
+  await moviesDescription();
 };
 
 main();
