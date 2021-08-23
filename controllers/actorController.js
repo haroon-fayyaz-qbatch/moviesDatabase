@@ -8,6 +8,8 @@ const Movie_cast = db["movie_cast"];
 const Movie = db["movie"];
 const Director = db["director"];
 const Movie_Direction = db["movie_direction"];
+const Rating = db["rating"];
+const Reviewer = db["reviewer"];
 
 Object.keys(db).forEach((key) => console.log(key, " ", db[key].associations));
 
@@ -118,13 +120,67 @@ const listMoviesThatAreNotReleasedInSpecificCountry = async (
     .catch((error) => console.error(error));
 };
 
+// 4. Write a query in SQL to find the movie title, year, date of release, director and actor for those movies which reviewer is unknown
+
+const listMoviesWithNoReviewers = async () => {
+  Movie.findAll({
+    attributes: ["mov_title", "mov_year", ["mov_dt_rel", "date of release"]],
+    include: [
+      {
+        model: Movie_Direction,
+        attributes: [],
+        required: true,
+        include: {
+          model: Director,
+          attributes: [
+            ["dir_fname", "director_fname"],
+            ["dir_lname", "director_lname"],
+          ],
+          required: true,
+          raw: true,
+        },
+      },
+      {
+        model: Movie_cast,
+        attributes: [],
+        required: true,
+        include: {
+          model: Actor,
+          attributes: ["act_fname", "act_lname"],
+          required: true,
+          raw: true,
+        },
+      },
+      {
+        model: Rating,
+        attributes: [],
+        required: true,
+        include: {
+          model: Reviewer,
+          required: true,
+          attributes: [],
+          where: {
+            rev_name: {
+              [Op.is]: null,
+            },
+          },
+        },
+      },
+    ],
+    raw: true,
+  })
+    .then((movies) => console.log(movies))
+    .catch((error) => console.error(error));
+};
+
 const main = async () => {
   // await viewAllActors();
   // await nameAndYearOfMovies();
   // await firstNameAndLastNameOfActors();
   // await actorsWhoPlayedRoleInSpecificMovie();
   // await nameOfDirectorsWhoDirectedASpecificRole();
-  await listMoviesThatAreNotReleasedInSpecificCountry();
+  // await listMoviesThatAreNotReleasedInSpecificCountry();
+  await listMoviesWithNoReviewers();
 };
 
 main();
