@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true,
         references: { model: "reviewer", key: "rev_id" },
       },
-      rev_stars: DataTypes.DOUBLE(4),
+      rev_stars: DataTypes.DOUBLE,
       num_o_ratings: DataTypes.INTEGER,
     },
     {

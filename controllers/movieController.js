@@ -272,7 +272,12 @@ const moviesDescription = async () => {
     .catch((error) => console.error(error));
 };
 
+// 10. Write a query in SQL to find the reviewer's name and the title of the movie for those reviewers who rated more than one movies.
+
 const reviewersWhoRatedMoreThanOneMovies = async () => {
+  console.log(
+    "10. Write a query in SQL to find the reviewer's name and the title of the movie for those reviewers who rated more than one movies."
+  );
   Reviewer.findAll({
     raw: true,
     attributes: ["rev_name"],
@@ -280,10 +285,7 @@ const reviewersWhoRatedMoreThanOneMovies = async () => {
       model: Rating,
       required: true,
       raw: true,
-      attributes: [
-        "rev_id",
-        [Sequelize.fn("count", Sequelize.col(`ratings.rev_id`)), "countR"],
-      ],
+      attributes: [],
       include: {
         raw: true,
         model: Movie,
@@ -291,7 +293,12 @@ const reviewersWhoRatedMoreThanOneMovies = async () => {
         attributes: ["mov_title"],
       },
     },
-    group: ["ratings.rev_id", "rev_name", "mov_title"],
+    group: ["rev_name", "mov_title"],
+    having: Sequelize.where(
+      Sequelize.fn("count", Sequelize.literal("*")),
+      ">=",
+      1
+    ),
   })
     .then((reviewers) => {
       console.log(reviewers);
